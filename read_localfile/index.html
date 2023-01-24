@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <title>SELECT 실시간 추가/삭제</title>
+        <style type="text/css">
+            body { font-size:20px }
+        </style>
+        <script type="text/javascript" src="index.js"></script>
+    </head>
+    <body onload="init()">
+        <button ref="btnFileRead">파일 읽기</button>
+        <div ref="output">
+        </div>
+        <input type="file" ref="fileOpenLocal" accept=".json" 
+            onchange="javascript:readFileChg()" style="display:none">
+    </body>
+</html>
