@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="grid.css">
+    </head>
+    <body>
+        <h2>Scrollable Grid (10만건)</h2>
+        <div id="gridArea" style="position:relative">
+            <div style="width:800px;height:500px;" >
+                <div ref="gridDiv" class="griddiv"  style="width:800px;height:500px;" >
+                    <div ref="grid" style="width:800px;height:500px;position:absolute;top:0px;left:0px;visibility:visible" ></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script language="javascript" src="grid.js"></script>  <!-- 라이브러리 경로는 맞추어 주어야 한다. -->
+    <script language="javascript">
+        var grid = null;
+        window.onload = function(){
+            grid = new Grid();
+            var options = {};
+            var ref = document.getElementById('gridArea');
+            options.master = true;
+            grid.init(options, ref);
+            var headers = [{
+                text:'번호',
+                name:'column1',
+                align:'right',
+                width:80  
+            },{
+                text:'성명',
+                name:'column2',
+                align:'center',
+                width:100  
+            },{
+                text:'주소1',
+                name:'column3',
+                align:'left',
+                width:200  
+            },{
+                text:'주소2',
+                name:'column4',
+                width:200  
+            },{
+                text:'주소3',
+                name:'column5',
+                width:220  
+            },{
+                text:'주소4',
+                name:'column6',
+                width:250  
+            }];
+            grid.setHeader(headers);
+            grid.setPageSize(100);
+
+            // 임의 데이터 10만건.
+            const xhttp = new XMLHttpRequest();
+            const output = document.querySelector('[ref=output]');
+            const xhr = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    const resObj = JSON.parse(this.responseText);
+                    const list = resObj.data.list;
+                    grid.setData(list);
+                } 
+            };
+            xhttp.open("GET", "./data.jsp", true);
+            xhttp.setRequestHeader('Content-type', "application/x-www-form-urlencoded; charset=utf-8");       
+            xhttp.send(); 
+        } 
+    </script>   
+</html>

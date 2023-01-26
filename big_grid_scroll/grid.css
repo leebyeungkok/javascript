@@ -1,0 +1,71 @@
+.grid {
+    border-top:0.5px solid darkgray;
+    border-left:0.5px solid darkgray;
+    border-right:0.5px solid darkgray;
+    border-bottom:0.5px solid darkgray;
+    position:relative;
+}
+.gridheader {
+    overflow:hidden;
+    height:24px;
+}
+.gridheaderrow {
+    height:24px;
+}
+.gridheadercol {
+    background-color:gold;
+    float:left;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size:14px;
+    height:24px;
+    border-right:0.5px solid darkgray;
+    border-bottom:0.5px solid darkgray;
+    position:relative;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+}
+.gridheadercoldiv {
+    float:right;
+    top:1px;
+    width:10px;
+    height:18px;
+    cursor:e-resize;
+}
+.gridbody {
+    overflow:auto;
+    position:relative;
+}
+.gridbodyrow:hover .gridbodycol{
+    background-color:aliceblue;
+}
+.gridbodycol{
+    float:left;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border-right:0.5px solid darkgray;
+    border-bottom:0.5px solid darkgray;
+    font-size:11px;
+}
+.gridscroll {
+    overflow:auto;
+    position:relative;
+}
+.gridscrollpop {
+    background-color:yellow;
+    position:absolute;
+    z-index:99999;
+}
+.gridscrollinner{
+    background-color:white;
+}
+.griddiv {
+    position:absolute;
+    top:0px;
+    left:0px;
+    visibility:visible
+}
