@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <title>Dynamic Dom</title>
+        <style type="text/css">
+           ul {
+            list-style-type: none;
+            padding-left:0px;
+          }
+        </style>
+        <script type="text/javascript" src="tree.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </head>
+    <body onload="init()">
+      <ul style="border:1px solid gray;width:300px;height:400px;overflow:auto;">
+      </ul>
+      <button onclick="expandAll();">모두펼치기</button>
+      <button onclick="shrinkAll();">모두접기</button>
+    </body>
+</html>
