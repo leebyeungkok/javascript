@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <title>Monaco Editor</title>
+        <script src="./lib/min/vs/loader.js"></script>
+        <script type="text/javascript">
+            require.config({ paths: { 'vs': './lib/min/vs' }});
+            let editor;
+            let init = function(){
+                require(['vs/editor/editor.main'], function() {
+                    editor = monaco.editor.create(document.getElementById('container'), {
+                        value: "function hello() {\n\talert('Hello world!');\n}",
+                        language: 'javascript',
+                        lineNumbers: 'on',
+                        roundedSelection: true,
+                        scrollBeyondLastLine: true,
+                        readOnly: false,
+                        theme: 'vs-dark'
+                    });
+                });
+            }
+            let writeEditor = function(){
+                editor.getModel().setValue("function hello() {\n\talert('Hello Monaco!');\n}");
+            }
+            let readEditor = function(){
+                alert(editor.getModel().getValue());
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <h2>Monaco</h2>
+        <div style="padding:10px;">
+            <button onclick="writeEditor();">설정</button> <button onclick="readEditor();">읽기</button>
+        </div>
+        <div id="container" style="width:500px; height:500px;"></div>
+    </body>
+</html>
